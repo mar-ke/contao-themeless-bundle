@@ -1,0 +1,60 @@
+/* files/themore/assets/scss/contao/table.css | last updated v1.2.0 */
+
+/* [start] table  */	
+
+	.content-table table {
+		border-collapse: collapse;
+		border: 1px solid var(--gray-color);
+		width: 100%;
+	}
+	
+	.content-table thead {
+		background-color: var(--darkergray-color);
+		color: white;
+	}
+	
+	.content-table td, 
+	.content-table th {
+		padding: 5px 10px;
+	}
+	
+	.content-table td:not(:last-child), 
+	.content-table th:not(:last-child) {
+		border-right: 1px solid var(--gray-color);
+	}
+	
+	.content-table tbody tr:nth-child(even) {
+		background-color: var(--lightgray-color);
+	}
+	
+	.content-table tbody tr {
+		transition-duration: .3s;
+	}
+	
+	.content-table tbody tr:hover {
+		transition-duration: .3s;
+		background-color: var(--gray-color);
+	}
+	
+	.content-table .fa-check,
+	.content-table .fa-x {
+		width: 25px;
+		height: 25px;
+		display: grid;
+		place-content: center;
+		border-radius: 100%;
+		margin: auto;
+		color: white;
+		padding: 5px;
+		font-size: .9em;	
+	}
+	
+	.content-table .fa-check {
+		background-color: var(--main-color);
+	}
+	
+	.content-table .fa-x {
+		background-color: var(--second-color);
+	}
+	
+/* [end] table  */	

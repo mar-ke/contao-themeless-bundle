@@ -1,0 +1,86 @@
+/* files/themore/assets/scss/contao/events.css | last updated v1.2.0 */
+
+/* [start] event calendar */
+
+	.calendar {
+		width: 100%;
+	}
+	
+	.calendar tr > * {
+		width: calc(100% / 7);
+	}
+	
+	.calendar tbody .weekend {
+		background-color: #f4f4f4;
+	}
+
+	.calendar {
+		border-collapse: collapse;
+	}
+	
+	.calendar td {
+		padding: 20px;
+		border: 1px solid #ddd;
+		vertical-align: top;
+	}
+	
+	.calendar td .header {
+		text-align: right;
+		color: #555;
+	}
+
+	.calendar thead th {
+		padding: 10px;
+		font-weight: 300;
+	}
+	
+	.calendar .event {
+		border: 1px solid #ddd;
+		padding: 5px;
+		margin-top: 5px;
+		border-radius: 5px;
+		background-color: white;
+		box-shadow: 0 0 3px #0002;
+	}
+	
+
+/* [end] event calendar */
+
+/* [start] event reader */
+
+	.mod_eventreader .info, .mod_eventreader .location {
+		color: #666;
+		font-style: italic;
+		margin-top: unset;
+		margin-bottom: 10px;
+	}
+	
+/* [end] event reader */
+
+
+/* [start] event list */
+
+	.mod_eventlist .event {
+		display: grid;
+		border: 1px solid #eee;
+		padding: 10px;
+		border-radius: 5px;
+		background-color: white;
+		gap: 10px;
+	}
+	
+	@media screen and (min-width:800px) {
+		.mod_eventlist .event {
+			grid-template-columns: 150px 200px auto 50px;
+		}
+	}
+	
+	.mod_eventlist .event:not(.last) {
+		margin-right: 15px;
+	}
+	
+	.mod_eventlist .event p + p {
+		margin-top: unset;
+	}	
+	
+/* [end] event list */

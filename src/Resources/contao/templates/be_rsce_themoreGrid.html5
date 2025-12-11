@@ -1,0 +1,32 @@
+<?php
+	
+	$GLOBALS['TL_CSS'][] = "/bundles/markethemeless/css/_backend/grid.css";
+
+	if (!function_exists('outputGridWrapperScript')) {
+
+
+		function outputGridWrapperScript()
+		{
+			static $alreadyOutput = false;
+			if ($alreadyOutput) {
+				return;
+			}
+			$alreadyOutput = true;
+		
+			echo '<script src="/bundles/markethemeless/js/be_gridWrapper.js" data-turbo="false"></script>';
+		}
+		
+		outputGridWrapperScript();
+	
+	}
+
+?>
+
+
+<?php if ( str_contains( $this->class,"ce_rsce_themoreGrid" ) && !str_contains( $this->class,"ce_rsce_themoreGridEnd" ) ): ?>
+
+	<div class="<?= $this->type ?>_information" data-grid="<?= $this->grid ?>" data-grid-tablet="<?= $this->gridTablet ?>" data-grid-smartphone="<?= $this->gridSmartphone ?>">
+		<p>Desktop: <?= $this->grid ?> | Tablet: <?= $this->gridTablet ?> | Smartphone: <?= $this->gridSmartphone ?></p>
+	</div>
+
+<?php endif ?>

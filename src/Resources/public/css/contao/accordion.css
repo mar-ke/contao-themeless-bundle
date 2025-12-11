@@ -1,0 +1,90 @@
+/* files/themore/assets/scss/contao/accordion.css | last updated v1.2.0 */
+
+/* [start] accordion  */
+
+    /* C4 && C5 mixed -> remove after C4 after LTS */
+
+    .ce_accordion {
+        border: 1px solid #ddd;
+        margin-bottom:15px;
+    }
+
+    .ce_accordion .toggler,
+    .ce_accordion .ui-accordion-content,
+    .handorgel__header__button {
+        padding: 20px 60px 20px 30px;
+        position:relative;
+    }
+
+    .ce_accordion .ui-accordion-header-active {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .ce_accordion .toggler::after,
+    .ce_accordion .toggler::before,
+    .handorgel__header__button::after,
+    .handorgel__header__button::before {
+        content: "";
+        position: absolute;
+        right: 30px;
+        width: 20px;
+        height: 2px;
+        background-color: var(--main-color);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .ce_accordion .toggler::before,
+    .handorgel__header__button::before{
+        right: 39px;
+        width: 2px;
+        height: 20px;
+        transition-duration:.3s;
+    }
+
+    .ce_accordion .ui-accordion-header-active::before,
+    .handorgel__header--opened .handorgel__header__button::before{
+        height: 0;
+        transition-duration:.3s;
+    }
+
+    .ce_accordion .toggler:hover {
+        cursor: pointer;
+    }
+
+    .ce_accordion .toggler:not(.ui-accordion-header-active):hover {
+        box-shadow: 0 0 5px #0001;
+    }
+
+
+    .handorgel__header__button {
+        border: unset;
+        background-color: var(--lightgray-color);
+        border-radius: 5px;
+        font-size: 20px;
+    }
+    
+    .handorgel__header--opened .handorgel__header__button {
+        border-radius: 5px 5px 0 0;
+    }
+    
+    .handorgel__content {
+        border: unset;
+        background: var(--lightgray-color);
+        border-radius: 0 0 5px 5px;
+    }
+    
+    .content-accordion {
+        border-bottom: unset;
+    }
+    
+    .handorgel__content__inner {
+        padding: 0px 30px 10px;
+    }
+    
+    .handorgel__header:not(:first-child) {
+        margin-top: 15px;
+    }
+
+
+/* [end] accordion  */

@@ -1,0 +1,77 @@
+
+{# rsce_themoreIcons.html.twig #}
+
+{% use "@Contao/component/_stylesheet.html.twig" %}
+
+{% block content %}
+
+
+
+
+
+{% add 'elementsIconsCSS' to head %}
+  {# Add an additional head tag #}
+  <link rel="stylesheet" href="/bundles/markethemeless/css/custom/icons.css">
+{% endadd %}
+
+
+
+{# WICHTIG: $svg muss im PHP vorbereitet und als Variable 'svg' an Twig übergeben werden! #}
+
+{# Klassen zusammensetzen #}
+{% set addClass = '' %}
+
+{% if text_before is defined and text_before %}
+	{% set addClass = addClass ~ '--text-before ' %}
+{% endif %}
+
+{% if text_after is defined and text_after %}
+	{% set addClass = addClass ~ '--text-after ' %}
+{% endif %}
+
+{% if iconPosition is defined %}
+	{% set addClass = addClass ~ 'iconpos_' ~ iconPosition ~ ' ' %}
+{% endif %}
+
+{# Tagtyp & Button-Logik #}
+{% set tagTypeFinal = tagType %}
+
+{% if tagType is defined and tagType starts with 'btn' %}
+	{% set addClass = addClass ~ 'btn ' %}
+	{% set tagTypeFinal = 'div' %}
+	{% if tagType != 'btnAccent' %}
+		{% set addClass = addClass ~ tagType ~ ' ' %}
+	{% endif %}
+{% endif %}
+
+<{{ tagTypeFinal }} class="{{ class }} themoreIconWrapper {{ addClass }}">
+
+	{% if url is defined and url %}
+		<a href="{{ url }}" 
+			{% if target is defined and target %}target="_blank"{% endif %}
+			{% if link_title is defined and link_title %}title="{{ link_title }}"{% endif %}
+		>
+	{% endif %}
+
+		{{ text_before|default('')|raw }}
+
+		{% if icon is defined and icon %}
+
+			<span class="{{ iconBackgroundClass|default('') }} icon {{ icon_class|default('') }}" {% if iconBackgroundRadius is defined and iconBackgroundRadius %}style="border-radius:{{iconBackgroundRadius}}"{% endif %}>
+
+				<span class="iconInner" style="background-color: {{ iconColorCode }}{{ iconColorClass }}; mask-image: url('/{{ icon }}');	-webkit-mask-image: url('/{{ icon }}');"></span>
+				
+			
+			</span>
+			
+		{% endif %}
+
+		{{ text_after|default('')|raw }}
+
+	{% if url is defined and url %}
+		</a>
+	{% endif %}
+
+</{{ tagTypeFinal }}>
+
+{% endblock %}

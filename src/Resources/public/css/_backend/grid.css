@@ -1,0 +1,115 @@
+/* files/themore/assets/scss/_backend/grid.css | last updated v1.4.0 (created) */
+
+@media screen and ( min-width: 1100px ) {
+  
+  /* grid itself */
+  
+  .grid2Col {
+    grid-template-columns: repeat(2, calc(100% / 2 - 10px))
+  }
+  
+  .grid3Col {
+    grid-template-columns: repeat(3,calc(100% / 3 - 40px / 3));
+  }
+  
+  .grid4Col {
+    grid-template-columns: repeat(4, calc(25% - 15px));
+  }
+  
+  .grid5Col {
+    grid-template-columns: repeat(5, calc(20% - 16px));
+  }
+  
+  .grid6Col {
+    grid-template-columns: repeat(6,calc(100% / 6 - 20px * 5 / 6));
+  }
+  
+  .grid-66-33 {
+    grid-template-columns: calc(66% - 10px) calc(33% - 10px);
+  }
+  
+  .grid-33-66 {
+    grid-template-columns: calc(33% - 10px) calc(66% - 10px);
+  }
+  
+  .grid-75-25 {
+    grid-template-columns: calc(75% - 10px) calc(25% - 10px);
+  }
+  
+  .grid-25-75 {
+    grid-template-columns: calc(25% - 10px) calc(75% - 10px);
+  }
+  
+  .grid {
+    display: grid;
+    gap: 20px;
+  }
+  
+  /* the div-wrapper */
+  
+  .wrapper_container {
+    border: 1px solid #ddd;
+    padding: 50px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .wrapper_container:has( > li .rsce_themoreGrid_information) {
+    padding-top: 100px;
+  }
+  
+  /* every wrapper start- / end- element */
+  
+  .themore_starting_wrapper,
+  .themore_ending_wrapper { 
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: absolute;
+    
+  }
+  
+  .themore_starting_wrapper {
+    top: 0;
+  }
+  
+  .themore_ending_wrapper {
+    bottom: 0;
+  }
+  
+  /* elements inside a wrapper */
+  
+  .wrapper_container .tl_content.indent {
+    background-color: unset;
+    border: unset;
+    padding:0;
+  }
+  
+  .themore_starting_wrapper .wrapper_start,
+  .themore_starting_wrapper .wrapper_start.indent > .inside {
+    border-top: 0;
+    margin-top:0;
+  }
+  
+  .themore_ending_wrapper .wrapper_stop,
+  .themore_ending_wrapper .wrapper_stop.indent > .inside {
+    border-bottom: 0;
+  }
+  
+  .themore_starting_wrapper .wrapper_start,
+  .themore_ending_wrapper .wrapper_stop,
+  .themore_starting_wrapper .wrapper_start.indent > .inside,
+  .themore_ending_wrapper .wrapper_stop.indent > .inside {
+    border-left: 0;
+    border-right: 0;
+  }
+
+  /* spacing */
+
+.themore_ending_wrapper .cte_content .cte_preview {
+    padding: 0;
+  }
+  
+  
+}

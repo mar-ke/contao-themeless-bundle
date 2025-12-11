@@ -1,0 +1,11 @@
+/* files/themore/assets/scss/_backend/icons.css | last updated v2.0.0 (created) */
+
+#ctrl_rsce_field_icon span:has(img) {
+  display: inline-block;
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+span:has(input:checked) {
+  outline: 2px solid #0003cc;
+}

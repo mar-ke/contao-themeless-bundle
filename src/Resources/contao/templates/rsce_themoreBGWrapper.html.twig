@@ -1,0 +1,39 @@
+{# rsce_themoreBGWrapper.html.twig #}
+
+{% block content %}
+
+{% if container_tag is defined and container_tag %}
+	{% set wrapper_tag = container_tag %}
+{% else %}
+	{% set wrapper_tag = 'div' %}
+{% endif %}
+
+{# Offset-Styles #}
+{% if offsetCheck is defined and offsetCheck %}
+	<style>
+		[data-offset="bgWrapper_{{ id }}"]::before {
+			content: ''; position: absolute; width: 100%; z-index: 2; background-color: #{{ offsetBgColorCode }}; height: {{ offsetHeight }}%;
+			{% if offsetPosition == 'top' or offsetPosition == 'both' %} top: 0; {% elseif offsetPosition == 'bottom' %} bottom: 0; {% elseif offsetPosition == 'center' %} top: calc((100% - {{ offsetHeight }}%) / 2); {% endif %}
+		}
+
+		{% if offsetPosition == 'both' %}
+			[data-offset="bgWrapper_{{ id }}"]::after { 
+				content: ''; background-color: #{{ offsetBgColorCode }}; position: absolute; width: 100%; height: {{ offsetHeight }}%; bottom: 0; z-index: 2;
+			}
+		{% endif %}
+	</style>
+{% endif %}
+
+<{{ wrapper_tag }} class="bgWrapper {% if class is defined %} {{ class }}{% endif %} {% if bgColorClass is defined %} {{ bgColorClass }}{% endif %} " {% if offsetCheck %}data-offset="bgWrapper_{{ id }}"{% endif %} {% if cssID is defined %}{{ cssID|raw }}{% endif %} style="{% if bgSettings is defined %} {{ bgSettings }}{% endif %} {% if bgColorCode %}background-color:#{{ bgColorCode }};{% endif %}">
+
+	{% if singleSRC is defined and size is defined %}
+		<div class="backgroundImage">
+			{{ contao_figure(singleSRC,size) }}
+		</div>
+	{% endif %}
+
+	<div class="bgWrapperInner {% if containerSize %}maxWidthContainerSize{% endif %}" style="margin-right:auto; margin-left:auto;{% if maxWidth %}max-width:{{ maxWidth }};{% endif %}">
+
+
+		
+{% endblock %}

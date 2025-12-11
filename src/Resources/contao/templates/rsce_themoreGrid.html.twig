@@ -1,0 +1,31 @@
+{# rsce_themoreGrid.html5.twig #}
+
+
+{% block content %}
+
+{# Wrapper-Tag bestimmen (Fallback: div) #}
+{% if container_tag is defined and container_tag %}
+	{% set wrapper_tag = container_tag %}
+{% else %}
+	{% set wrapper_tag = 'div' %}
+{% endif %}
+
+{# Grid-Faktor Style #}
+{% if gridFaktor is defined and gridFaktor != 1 and gridFaktor != '' %}
+	<style>
+		#grid_{{ id }} {
+			--gridFaktor: {{ gridFaktor }};
+		}
+	</style>
+{% endif %}
+
+<{{ wrapper_tag }}
+	id="grid_{{ id }}"
+	class="grid {{ grid }} {{ gridTablet }} {{ gridSmartphone }} {{ class }}
+		{% if placeContent is defined and placeContent %} gridPlaceContent_{{ placeContent }}{% endif %}
+	"
+	{% if cssID is defined %}{{ cssID|raw }}{% endif %}
+>
+
+
+{% endblock %}

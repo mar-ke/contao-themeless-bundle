@@ -1,0 +1,36 @@
+/* files/themore/assets/scss/contao/downloads.css | last updated v1.4.0 */
+
+/* [start] single download  */	
+
+	
+	.content-download a,
+	.ce_download a {
+		background-color: var(--main-color);
+		padding: 10px 20px;
+		display: block;
+		width: fit-content;
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
+		color: #fff;
+		border-radius: 50px;
+	}
+
+/* [end] single download  */	
+
+/* [start] several download  */	
+
+	
+	.content-downloads,
+	.ce_downloads {
+		background-color: var(--lightgray-color);
+		padding: 10px 20px;
+		width: fit-content;
+	}
+	
+	.content-downloads a,
+	.ce_downloads a{
+		padding-left:5px;
+	}
+
+/* [end] several download  */	

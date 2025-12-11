@@ -1,0 +1,84 @@
+
+{# rsce_themoreDivider.html.twig #}
+
+{% block content %}
+
+
+
+{# Styles und Klassen initialisieren #}
+{% set style = '' %}
+{% set extraClass = '' %}
+
+{# Höhe und Breite #}
+{% if height is defined and height %}
+	{% set style = style ~ 'height:' ~ height ~ ';' %}
+{% endif %}
+
+{% if width is defined and width %}
+	{% set style = style ~ 'width:' ~ width ~ ';' %}
+{% endif %}
+
+{# Position #}
+{% if position is defined %}
+	{% if position == 'right' %}
+		{% set style = style ~ 'margin-left:auto;' %}
+	{% elseif position == 'center' %}
+		{% set style = style ~ 'margin-left:auto;margin-right:auto;' %}
+	{% endif %}
+{% endif %}
+
+{# Form und Styles #}
+{% if form is defined and form == 'border' %}
+	{# Border Color #}
+	{% if dividerColorClass is defined and dividerColorClass == 'own' and dividerColor is defined and dividerColor %}
+		{% set style = style ~ 'border-bottom-color:#' ~ dividerColor ~ ';' %}
+	{% elseif dividerColorClass is defined and dividerColorClass != 'own' and dividerColorClass != '' %}
+		{% set extraClass = extraClass ~ 'borderColor' ~ dividerColorClass ~ ' ' %}
+	{% endif %}
+
+	{# Border Style #}
+	{% if borderType is defined and borderType %}
+		{% set style = style ~ 'border-bottom-style:' ~ borderType ~ ';' %}
+	{% endif %}
+
+	{# Border Width #}
+	{% if height is defined and height %}
+		{% set style = style ~ 'border-bottom-width:' ~ height ~ ';' %}
+	{% endif %}
+
+{% else %}
+	{# Ellipse (runde Form) #}
+	{% if ellipse is defined and ellipse %}
+		{% set style = style ~ 'border-radius:100%;' %}
+	{% endif %}
+
+	{# Hintergrundfarbe #}
+	{% if dividerBGColorClass is defined and dividerBGColorClass == 'ownBG' and dividerBGColor is defined and dividerBGColor %}
+		{% set style = style ~ 'background-color:#' ~ dividerBGColor ~ ';' %}
+	{% elseif dividerBGColorClass is defined and dividerBGColorClass != 'ownBG' and dividerBGColorClass != '' %}
+		{% set extraClass = extraClass ~ 'bg' ~ dividerBGColorClass ~ ' ' %}
+	{% endif %}
+
+	{# Gradient Hintergrund #}
+	{% if dividerBGColorClass is defined and dividerBGColorClass == 'gradient' %}
+		{% set style = style ~ 'background-image: linear-gradient(90deg, ' %}
+		{% if linearGradient_01 is defined and linearGradient_01 %} 
+			{% set style = style ~ '#' ~ linearGradient_01 %}
+		{% else %}
+			{% set style = style ~ '#0000' %}
+		{% endif %}
+		{% if linearGradient_02 is defined and linearGradient_02 %}
+			{% set style = style ~ ',#' ~ linearGradient_02 %}
+		{% endif %}
+		{% if linearGradient_03 is defined and linearGradient_03 %}
+			{% set style = style ~ ',#' ~ linearGradient_03 %}
+		{% endif %}
+		{% set style = style ~ ');' %}
+	{% endif %}
+{% endif %}
+
+<div class="{{ class }} divider {{ extraClass }}" {% if cssID is defined %}{{ cssID|raw }}{% endif %} style="{{ style }}">
+</div>
+
+
+{% endblock %}

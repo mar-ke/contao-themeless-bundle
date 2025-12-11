@@ -1,0 +1,16 @@
+{# rsce_themoreBGWrapperEnd.html.twig #}
+
+{% block content %}
+
+
+{# Wrapper-Tag bestimmen #}
+{% if container_tag is defined and container_tag %}
+	{% set wrapper_tag = container_tag %}
+{% else %}
+	{% set wrapper_tag = 'div' %}
+{% endif %}
+
+</div>
+</{{ wrapper_tag }}>
+
+{% endblock %}

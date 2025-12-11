@@ -1,0 +1,22 @@
+<?php 
+
+	$GLOBALS['TL_CSS'][] = "/bundles/markethemeless/css/_backend/icons.css";
+	$svg = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/" . $this->icon);
+
+?>
+
+<p class="themoreIconWrapper">
+
+	<?php 
+	
+		if ( $this->tagType == "div") { echo "Button:"; } 
+		elseif ( $this->tagType == "p") { echo ""; } 
+		else  { echo $this->tagType.":"; }
+		
+	?>
+	
+	<?= $this->text_before ?>
+		<span class="icon"><?= $svg ?></span>
+	<?= $this->text_after ?>
+
+</p>
