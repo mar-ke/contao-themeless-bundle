@@ -27,7 +27,7 @@
 <{{ wrapper_tag }} class="bgWrapper {% if class is defined %} {{ class }}{% endif %} {% if bgColorClass is defined %} {{ bgColorClass }}{% endif %} " {% if offsetCheck %}data-offset="bgWrapper_{{ id }}"{% endif %} {% if cssID is defined %}{{ cssID|raw }}{% endif %} style="{% if bgSettings is defined %} {{ bgSettings }}{% endif %} {% if bgColorCode %}background-color:#{{ bgColorCode }};{% endif %}">
 
 	{% if singleSRC is defined and size is defined %}
-		<div class="backgroundImage">
+		<div class="backgroundImage {% if bgImageClass is defined %} {{bgImageClass}} {% endif %}" {% if bgImageSettings is defined %} style="{{bgImageSettings}}" {% endif %}>
 			{{ contao_figure(singleSRC,size) }}
 		</div>
 	{% endif %}
@@ -35,5 +35,7 @@
 	<div class="bgWrapperInner {% if containerSize %}maxWidthContainerSize{% endif %}" style="margin-right:auto; margin-left:auto;{% if maxWidth %}max-width:{{ maxWidth }};{% endif %}">
 
 
+
+
 		
-{% endblock %}
+{% endblock %} 

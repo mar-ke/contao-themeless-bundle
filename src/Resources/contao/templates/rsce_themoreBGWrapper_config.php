@@ -5,8 +5,8 @@ return array(
 		'Hintergrund-Wrapper [ANFANG]',
 		'',
 	),
-    'types' => array('content'),
-    'contentCategory' => 'themore',
+	'types' => array('content'),
+	'contentCategory' => 'themore',
 	'standardFields' => array('cssID'),
 	'wrapper' => array(
 		'type' => 'start',
@@ -47,11 +47,11 @@ return array(
 			'eval' => array('tl_class' => 'w50'),
 		),
 		
-        'description_clr' => array(
-            'label' => array('Hintergrundfarbe', ''),
-            'inputType' => 'group',
-        ),
-        
+		'description_clr' => array(
+			'label' => array('Hintergrundfarbe', ''),
+			'inputType' => 'group',
+		),
+		
 		'bgColorCode' => array(
 			'label' => array('Individuelle Hintergrundfarbe', ''),
 			'inputType' => 'text',
@@ -81,10 +81,19 @@ return array(
 			'eval' => array('tl_class' => 'w50'),
 		),
 		
-        'description_img' => array(
-            'label' => array('Hintergrundbild', ''),
-            'inputType' => 'group',
-        ),
+		'bgSettings' => array(
+			'label' => array('Hintergrund Styling', 'Hier können Inline-Styles für den Hintergrund eingegeben werden. background:linear-gradient(red,blue)'),
+			'inputType' => 'text',
+			'eval' => array(
+				'maxlength'=>255
+			),
+			'sql' => "varchar(255) NOT NULL default ''"
+		),		
+	
+		'description_img' => array(
+			'label' => array('Hintergrundbild', ''),
+			'inputType' => 'group',
+		),
 		
 		'singleSRC' => array(
 			'label' => array('Hintergrund Bild', ''),
@@ -99,18 +108,6 @@ return array(
 			'sql'       => "binary(16) NULL"
 		),
 		
-		'form' => array(
-			'label' => array('Ausgabe als Hintergrund oder Bild', 'Verwendet entweder background-image oder <img>. Je Einstellungen stehen andere Optionen zur Verfügung'),
-			'inputType' => 'select',
-			'options' => array(
-				'bg' => 'Hintergrund',
-				'img' => 'Bild',
-
-			),
-			'eval' => array('tl_class' => 'cbx clr'),
-		),
-		
-		
 		'size' => array(
 			'label' => array('Bildbreite und Bildhöhe', ''),
 			'inputType' => 'imageSize',
@@ -119,30 +116,31 @@ return array(
 			'eval' => array(
 				'rgxp' => 'digit',
 				'includeBlankOption' => true,
-			),
-			'dependsOn' => array(
-				'field' => 'form',  
-				'value' => 'img',
-			),
+			)
 		),
 	
-		'bgSettings' => array(
-			'label' => array('Hintergrund Styling', 'Hier können Inline-Styles für den Hintergrund eingegeben werden. background-size: cover; background-position: center; ...'),
+		'bgImageSettings' => array(
+			'label' => array('Hintergrundbild Einstellungen', 'Hier können Inline-Styles für das Hintergrundbild eingegeben werden. left:5%; right: 40%'),
 			'inputType' => 'text',
 			'eval' => array(
 				'maxlength'=>255
 			),
-			'sql' => "varchar(255) NOT NULL default ''",
-			'dependsOn' => array(
-				'field' => 'form',  
-				'value' => 'bg',
+			'sql' => "varchar(255) NOT NULL default ''"
+		),
+		
+		'bgImageClass' => array(
+			'label' => array('Klasse für das Hintergrundbild', 'Vergebe eine Klasse für das Hintergrundbild'),
+			'inputType' => 'text',
+			'eval' => array(
+				'maxlength'=>255
 			),
+			'sql' => "varchar(255) NOT NULL default ''"
 		),
 	
-        'description_offset' => array(
-            'label' => array('Overlay einbinden ', ''),
-            'inputType' => 'group',
-        ),
+		'description_offset' => array(
+			'label' => array('Overlay einbinden ', ''),
+			'inputType' => 'group',
+		),
 		
 		'offsetCheck' => array(
 			'label' => array('de' => array('Ein farbiges Overlay einfügen','')),

@@ -1,0 +1,28 @@
+{# rsce_themoreBGWrapper.html.twig #}
+
+{% use "@Contao/component/_stylesheet.html.twig" %}
+
+{% add "themelessCSS" to stylesheets %}
+	{% with {file: asset('/bundles/markethemeless/css/import.css')} %}
+		{{ block('stylesheet_component') }}
+	{% endwith %}
+{% endadd %}
+
+{% if loadwowjs is defined and loadwowjs %}
+
+	{% add "wowCSS" to stylesheets %}
+		{% with {file: asset('/bundles/contaowowjs/animate.min.css')} %}
+			{{ block('stylesheet_component') }}
+		{% endwith %}
+	{% endadd %}
+
+	{% block script %}
+		{% add "wowJS" to body %}
+			<script src="{{ asset('/bundles/contaowowjs/wow.min.js') }}"></script>
+			<script>
+				new WOW().init();
+			</script>
+		{% endadd %}
+	{% endblock %}	
+	
+{% endif %}

@@ -13,7 +13,7 @@
 			}
 			$alreadyOutput = true;
 		
-			echo '<script src="/bundles/markethemeless/js/be_gridWrapper.js" data-turbo="false"></script>';
+			$GLOBALS['TL_JAVASCRIPT'][] = '/bundles/markethemeless/js/be_gridWrapper.js';
 		}
 		
 		outputGridWrapperScript();

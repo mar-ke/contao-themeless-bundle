@@ -10,7 +10,7 @@ if (!class_exists('themoreIconPicker')) {
 		
 	    public static function showIcons(): array {
 			
-			echo '<script src="/bundles/markethemeless/js/be_iconPicker.js" data-turbo="false"></script>';
+			$GLOBALS['TL_JAVASCRIPT'][] = '/bundles/markethemeless/js/be_iconPicker.js';
 			$GLOBALS['TL_CSS'][] = '/bundles/markethemeless/css/_backend/icons_form.css';
 				    	
 			$basePath = $_SERVER['DOCUMENT_ROOT'] . '/assets/contao-component-fontawesome-free/fontawesomefree/svgs/';
