@@ -24,7 +24,7 @@ if (!class_exists('themoreIconPicker')) {
 			    if (is_dir($svgDir)) {
 			        foreach (scandir($svgDir) as $file) {
 			            if (pathinfo($file, PATHINFO_EXTENSION) === 'svg') {
-			                $svgFiles['assets/contao-component-fontawesome-free/fontawesomefree/svgs/' . $dir . '/' . $file] = '<img src="assets/contao-component-fontawesome-free/fontawesomefree/svgs/' . $dir . '/' . $file . '" width="30px" height="30px"';
+			                $svgFiles['assets/contao-component-fontawesome-free/fontawesomefree/svgs/' . $dir . '/' . $file] = '<img src="assets/contao-component-fontawesome-free/fontawesomefree/svgs/' . $dir . '/' . $file . '" width="30px" height="30px">';
 			            }
 			        }
 			    }
