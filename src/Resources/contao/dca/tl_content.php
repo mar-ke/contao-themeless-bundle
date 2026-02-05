@@ -12,6 +12,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['more_slider_settings'] = [
 			'length' => MySQLPlatform::LENGTH_LIMIT_TEXT,
 			'notnull' => false,
 		],
+		'eval' => ['tl_class'=>'clr']
 ];
 
 PaletteManipulator::create()

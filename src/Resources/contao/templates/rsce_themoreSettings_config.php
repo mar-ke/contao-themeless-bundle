@@ -1,5 +1,7 @@
 <?php
 
+use Doctrine\DBAL\Platforms\MySQLPlatform;
+
 return array(
 	'label' => ['themeless Setting', ''] ,
     'types' => ['content'],
@@ -14,7 +16,23 @@ return array(
 				'default' => false,
 			],
 		],
-		
+			
+		'cssFiles' => [
+			'label' => ['Zusätzliche CSS Dateien', ''],
+			'exclude' => true,
+			'inputType' => 'fileTree',
+			'eval' => [
+				'fieldType' => 'checkbox',
+				'files' => true,
+				'multiple' => true,
+				'extensions' => 'css',
+			],
+			'sql' => [
+				'type' => 'blob',
+				'length' => MySQLPlatform::LENGTH_LIMIT_BLOB,
+				'notnull' => false,
+			],
+		],
 
 	],
 );

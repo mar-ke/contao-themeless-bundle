@@ -85,7 +85,8 @@ return array(
 			'label' => array('Hintergrund Styling', 'Hier können Inline-Styles für den Hintergrund eingegeben werden. background:linear-gradient(red,blue)'),
 			'inputType' => 'text',
 			'eval' => array(
-				'maxlength'=>255
+				'maxlength'=>255,
+				'tl_class'=>'clr'
 			),
 			'sql' => "varchar(255) NOT NULL default ''"
 		),		

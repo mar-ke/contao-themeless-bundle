@@ -23,6 +23,20 @@
 				new WOW().init();
 			</script>
 		{% endadd %}
+		
+		{% for uuid in cssFiles %}
+		
+			{% add to head %}
+				<link rel="stylesheet" href="{{ insert_tag('file::' ~ uuid) }}">
+			{% endadd %}
+		
+		{% endfor %}
+		
 	{% endblock %}	
 	
 {% endif %}
+
+
+
+
+
