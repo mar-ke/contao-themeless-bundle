@@ -1,6 +1,6 @@
 /* files/themore/assets/js/be_iconPicker.js | last updated v1.4.1 */
 	
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('turbo:load', function () {
     
     console.log('Icon-BE script loaded')
     

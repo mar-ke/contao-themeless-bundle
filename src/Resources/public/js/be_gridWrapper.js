@@ -8,7 +8,7 @@
 
 
     	
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('turbo:load', () => {
         const listing = document.querySelector('#tl_listing > ul');
         if (!listing) return;
     
