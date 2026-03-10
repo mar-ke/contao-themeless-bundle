@@ -58,3 +58,18 @@
 	}
 	
 /* [end] table  */	
+
+/* [star] price Table  */	
+
+
+.priceTable.content-table table {
+  border: 0;
+}
+
+.priceTable.content-table table td {
+  padding-inline: calc(30px * var(--sizeFaktor)) !important;
+}
+
+
+
+/* [end] price Table  */	

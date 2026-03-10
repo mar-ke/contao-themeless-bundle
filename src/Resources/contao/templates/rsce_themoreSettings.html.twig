@@ -1,4 +1,4 @@
-{# rsce_themoreBGWrapper.html.twig #}
+{# rsce_themoreSettings.html.twig #}
 
 {% use "@Contao/component/_stylesheet.html.twig" %}
 
@@ -24,19 +24,18 @@
 			</script>
 		{% endadd %}
 		
-		{% for uuid in cssFiles %}
+		{% if cssFiles is defined %}
 		
-			{% add to head %}
-				<link rel="stylesheet" href="{{ insert_tag('file::' ~ uuid) }}">
-			{% endadd %}
+			{% for uuid in cssFiles %}
+			
+				{% add to head %}
+					<link rel="stylesheet" href="{{ insert_tag('file::' ~ uuid) }}">
+				{% endadd %}
+			
+			{% endfor %}
 		
-		{% endfor %}
+		{% endif %}
 		
 	{% endblock %}	
 	
 {% endif %}
-
-
-
-
-
