@@ -38,7 +38,7 @@
 		border: 1px solid #ddd;
 		padding: 5px;
 		margin-top: 5px;
-		border-radius: 5px;
+		border-radius: var(--border-radius-xs);
 		background-color: white;
 		box-shadow: 0 0 3px #0002;
 	}
@@ -64,7 +64,7 @@
 		display: grid;
 		border: 1px solid #eee;
 		padding: 10px;
-		border-radius: 5px;
+		border-radius: var(--border-radius-xs);
 		background-color: white;
 		gap: 10px;
 	}

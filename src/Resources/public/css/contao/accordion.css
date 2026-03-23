@@ -60,18 +60,18 @@
     .handorgel__header__button {
         border: unset;
         background-color: var(--lightgray-color);
-        border-radius: 5px;
+        border-radius: var(--border-radius-xs);
         font-size: 20px;
     }
     
     .handorgel__header--opened .handorgel__header__button {
-        border-radius: 5px 5px 0 0;
+        border-radius: var(--border-radius-xs) var(--border-radius-xs) 0 0;
     }
     
     .handorgel__content {
         border: unset;
         background: var(--lightgray-color);
-        border-radius: 0 0 5px 5px;
+        border-radius: 0 0 var(--border-radius-xs) var(--border-radius-xs);
     }
     
     .content-accordion {

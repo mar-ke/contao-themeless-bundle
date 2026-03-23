@@ -9,7 +9,7 @@
 		transition-duration: .3s;
 		z-index: 1;
 		overflow: hidden;
-		border-radius: 10px;
+		border-radius: var(--border-radius-s);
 		box-shadow: 0 0 10px #0002;
 		min-height:400px;
 		background-color: #373737;
@@ -25,7 +25,7 @@
 		padding: 5px 10px;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		border-radius: 13px;
+		border-radius: var(--border-radius-s);
 	}
 	
 	.mod_newslist .style_1 time {
@@ -40,7 +40,7 @@
 		transform: translateY(-10px);
 		transition-duration: .3s;
 		box-shadow: 0 0 20px #0004;
-		border-radius: 10px;
+		border-radius: var(--border-radius-s);
 	}
 
 	.mod_newslist .style_1 figure {
@@ -73,7 +73,7 @@
 	.mod_newslist .style_1 .content {
 		background-color: #0009;
 		padding: 15px;
-		border-radius: 0 0 10px 10px;
+		border-radius: 0 0 var(--border-radius-s) var(--border-radius-s);
 		border-top: 2px solid var(--main-color);
 		box-shadow: 0 0 10px #0003;
 		color: white;
@@ -126,7 +126,7 @@
 		max-height: 400px;
 		width: 100%;
 		object-fit: cover;
-		border-radius: 40px;
+		border-radius: var(--border-radius-l);
 	}
 	
 
@@ -135,7 +135,7 @@
 		position: relative;
 		min-height: 300px;
 		background-color: #f4f4f4;
-		border-radius: 40px;
+		border-radius: var(--border-radius-l);
 	}
 
 	.mod_newsreader.style_1 .subHeadlineWrapper {
@@ -164,7 +164,7 @@
 		z-index: 2;
 		position: relative;
 		box-shadow: 0 0 10px #0003;
-		border-radius: 20px;
+		border-radius: var(--border-radius-m);
 	}
 	
 	.back {
@@ -209,7 +209,7 @@
 	.news_v2 .layout_latest {
 		border: 1px solid var(--gray-color);
 		padding: calc(20px * var(--sizeFaktor));
-		border-radius: 20px;
+		border-radius: var(--border-radius-m);
 	}
 	
 	.news_v2 .layout_latest img {

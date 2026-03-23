@@ -19,6 +19,65 @@
 	</style>
 {% endif %}
 
+
+
+{% if individuellGrid is defined %}
+	
+
+	{% for gridSettings in individuellGrid %}
+
+		{% set amountOfGaps = 0 %}
+		{% set amountOfElements = 0 %}
+		{% set gridTemplateColumns = '' %}
+
+		{% set gridTemplate = gridSettings['gridTemplate']|split(' ')%}
+		{% set amountOfElements = gridTemplate|length %}
+		{% set amountOfGaps = gridTemplate|length - 1 %}
+		
+		{% for gridEntry in gridTemplate %}
+			
+			{% set gridTemplateColumns = gridTemplateColumns ~ 'calc( ' ~ gridEntry ~ ' - ( var(--grid-gap)*var(--gridFaktor) / ' ~ amountOfElements ~ ' * '~ amountOfGaps ~' ) ) ' %}
+		
+		{% endfor %}
+	
+		
+	{% set hasMin = gridSettings.mediaQueryMin is defined and gridSettings.mediaQueryMin is not null %}
+		{% set hasMax = gridSettings.mediaQueryMax is defined and gridSettings.mediaQueryMax is not null %}
+		
+		
+		
+		{% set hasMedia = hasMin or hasMax %}
+		
+		
+		<style>
+	
+			{% if hasMedia %}
+				@media screen 
+				{% if hasMin %}and (min-width:{{ gridSettings['mediaQueryMin'] }}){% endif %} 
+				{% if hasMax %}and (max-width:{{ gridSettings['mediaQueryMax'] }}){% endif %} {
+			{% endif %}
+			
+
+			
+		{% if gridTemplate[0] != "" %}
+		
+		
+			#grid_{{ id }} {
+				grid-template-columns: {{ gridTemplateColumns }};
+			}
+		{% endif %}
+		{% if hasMedia %}
+		}
+		{% endif %}
+		</style>
+		
+		
+	{% endfor %}
+	
+
+
+{% endif %}
+
 <{{ wrapper_tag }}
 	id="grid_{{ id }}"
 	class="grid {{ grid }} {{ gridTablet }} {{ gridSmartphone }} {{ class }}
@@ -26,6 +85,5 @@
 	"
 	{% if cssID is defined %}{{ cssID|raw }}{% endif %}
 >
-
 
 {% endblock %}

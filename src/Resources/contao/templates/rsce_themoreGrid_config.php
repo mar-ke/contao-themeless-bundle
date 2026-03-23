@@ -1,5 +1,8 @@
 <?php
 
+use Contao\CoreBundle\DataContainer\PaletteManipulator;
+use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
+
 return array(
 	'label' => array(
 		'Grid-Wrapper [ANFANG]',
@@ -13,6 +16,9 @@ return array(
 		'type' => 'start',
 	),
 	'fields' => array(
+		
+	
+
 		'grid' => array(
 			'label' => array('Grid für Desktop-Größe auswählen', ''),
 			'inputType' => 'select',
@@ -29,6 +35,7 @@ return array(
 				'grid-25-75' => 'Zwei Spalten (25% 75%)'
 			),
 			'eval' => array('tl_class' => 'w50'),
+
 		),
 		'gridTablet' => array(
 			'label' => array('Grid für Tablet-Größe auswählen', ''),
@@ -46,6 +53,7 @@ return array(
 				'grid-25-75Tablet' => 'Zwei Spalten (25% 75%)'
 			),
 			'eval' => array('tl_class' => 'w50'),
+
 		),
 		'gridSmartphone' => array(
 			'label' => array('Grid für Smartphone-Größe auswählen', ''),
@@ -63,7 +71,57 @@ return array(
 				'grid-25-75Smartphone' => 'Zwei Spalten (25% 75%)'
 			),
 			'eval' => array('tl_class' => 'w50'),
+
 		),
+
+
+
+		
+		
+		'individuellGrid' => [
+			'label' => ['Individuelles Grid (BETA)', 'Experimentell: Hier kannst du ein individuelles Grid erzeugen und damit die Gridauswahl überschreiben.'], // Or a &$GLOBALS['TL_LANG'] pointer
+			'inputType' => 'rowWizard',
+			'fields' => [
+				'mediaQueryMin' => [
+					'label' => ['Media Query Min(optional)'], // Or a &$GLOBALS['TL_LANG'] pointer
+					'inputType' => 'text',
+					'eval' => array('placeholder' => '700px'),
+				],
+				'mediaQueryMax' => [
+					'label' => ['Media Query Max(optional)'], // Or a &$GLOBALS['TL_LANG'] pointer
+					'inputType' => 'text',
+					'eval' => array('placeholder' => '1200px'),
+				],
+				'gridTemplate' => [
+					'label' => ['Grid Aufteilung'], // Or a &$GLOBALS['TL_LANG'] pointer
+					'inputType' => 'text',
+					'eval' => array('placeholder' => '20% 60% 20%'),
+				],
+
+			],
+			'eval' => [
+				'tl_class' => 'clr',
+				'actions' => [ // actions to be shown. Default: 'copy', 'delete' // 'edit' does not work yet
+					'copy',
+					'delete',
+					//'enable', // Enable / Disable
+				],
+				//'sortable' => false, // disables sorting the rows
+				'min' => 1, // minimum amount of rows
+			],
+			'sql' => [
+				'type' => 'blob',
+				'length' => AbstractMySQLPlatform::LENGTH_LIMIT_BLOB,
+				'notnull' => false,
+			],
+
+		],
+
+		'gap_clr' => array(
+			'label' => array('Individueller Spaltenabstand und Ausrichtung des Inhalts', ''),
+			'inputType' => 'group',
+		),
+		
 		'placeContent' => array(
 			'label' => array('Inhalt ausrichten', ''),
 			'inputType' => 'select',
@@ -75,12 +133,19 @@ return array(
 			),
 			'eval' => array('tl_class' => 'w50'),
 		),
-        'gridFaktor' => array(
-            'label' => array('Grid-Faktor', 'Gebe eine Zahl ein, die mit der Grid-Gap multipliziert wird. z.B. 0 für kein Grid-Gap, 2 für einen großen Abstand '),
-            'eval' => array('rgxp' => 'prcnt', 'tl_class' => 'clr'),
-            'inputType' => 'text',
-            'default' => 1,
-        ),
+		
+		'gridFaktor' => array(
+			'label' => array('Abstand zwischen den Spalten (Faktor * 20px)', 'Gebe eine Zahl ein, die den Abstand zwischen zwei Spalten bestimmt. Deine Zahl wird mit 20px multipliziert.'),
+			'eval' => array('rgxp' => 'prcnt', 'tl_class' => 'w50'),
+			'inputType' => 'text',
+			'default' => 1,
+		),
+		
+		'bfsg_clr' => array(
+			'label' => array('Barrierefreiheit', ''),
+			'inputType' => 'group',
+		),
+		
 		'container_tag' => array(
 			'label' => array('Wähle den Wrapper-Tag', 'Je nach Inhalt ist es hierbei ratsam eine alternative zum <div>-Tag zu verwenden. Bei Fragen dazu suche nach "Semantischen HTML Tags".'),
 			'inputType' => 'select',
@@ -91,5 +156,6 @@ return array(
 			),
 			'eval' => array('tl_class' => 'w50'),
 		),
+		
 	),
 );
