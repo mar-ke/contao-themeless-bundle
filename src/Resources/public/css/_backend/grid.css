@@ -111,5 +111,18 @@
     padding: 0;
   }
   
+  .grid4Col li:not([class*="themore"]) .tl_content_right,
+  .grid5Col li:not([class*="themore"]) .tl_content_right,
+  .grid6Col li:not([class*="themore"]) .tl_content_right {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  
+  .grid4Col li:not([class*="themore"]) .cte_type,
+  .grid5Col li:not([class*="themore"]) .cte_type,
+  .grid6Col li:not([class*="themore"]) .cte_type {
+    font-size: 0.7em !important;
+  }
+  
   
 }
