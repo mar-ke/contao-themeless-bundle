@@ -1,6 +1,7 @@
 <?php
 
 use Doctrine\DBAL\Platforms\MySQLPlatform;
+use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 
 return array(
 	'label' => ['themeless Setting', ''] ,
@@ -31,6 +32,22 @@ return array(
 				'type' => 'blob',
 				'length' => MySQLPlatform::LENGTH_LIMIT_BLOB,
 				'notnull' => false,
+			],
+		],
+		
+		'headTags' => [
+			'label' => ['Zusätzliche Head-Tags', ''],
+			'inputType' => 'textarea',
+			'eval' => [
+				'useRawRequestData'=>true, 
+				'class'=>'monospace', 
+				'rte'=>'ace|html', 
+				'helpwizard'=>true,
+			],
+			'sql' => [
+				'type'=>'text', 
+				'length'=>AbstractMySQLPlatform::LENGTH_LIMIT_MEDIUMTEXT, 
+					'notnull'=>false
 			],
 		],
 

@@ -36,6 +36,12 @@
 		
 		{% endif %}
 		
+		{% if headTags is defined %}
+			{% add "custom_head" to head %}
+				{{ headTags|raw }}
+			{% endadd %}
+		{% endif %}
+
 	{% endblock %}	
 	
 {% endif %}
