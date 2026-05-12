@@ -58,7 +58,7 @@
 	{% endif %}
 
 
-	{% if url is defined and url %}{{ url|raw }}
+	{% if url is defined and url %}
 		<a href="{{ finalUrl|raw }}" 
 			{% if target is defined and target %}target="_blank"{% endif %}
 			{% if link_title is defined and link_title %}title="{{ link_title }}"{% endif %}
