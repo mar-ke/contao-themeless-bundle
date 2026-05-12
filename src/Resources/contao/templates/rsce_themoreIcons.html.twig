@@ -46,8 +46,20 @@
 
 <{{ tagTypeFinal }} class="{{ class }} themoreIconWrapper {{ addClass }}">
 
-	{% if url is defined and url %}
-		<a href="{{ url }}" 
+	{% if '{' in url or '}' in url %}
+		{% set cleanUrl = url|replace({
+			'{': '',
+			'}': ''
+		}) %}
+	
+		{% set finalUrl = insert_tag(cleanUrl) %}
+	{% else %}
+		{% set finalUrl = url %}
+	{% endif %}
+
+
+	{% if url is defined and url %}{{ url|raw }}
+		<a href="{{ finalUrl|raw }}" 
 			{% if target is defined and target %}target="_blank"{% endif %}
 			{% if link_title is defined and link_title %}title="{{ link_title }}"{% endif %}
 		>
