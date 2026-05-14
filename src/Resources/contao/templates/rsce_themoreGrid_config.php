@@ -23,7 +23,7 @@ return array(
 			'label' => array('Grid für Desktop-Größe auswählen', ''),
 			'inputType' => 'select',
 			'options' => array(
-				'' => 'Eine Spalte',
+				'grid1Col' => 'Eine Spalte',
 				'grid2Col' => 'Zwei Spalten',
 				'grid3Col' => 'Drei Spalten',
 				'grid4Col' => 'Vier Spalten',
